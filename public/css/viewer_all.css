@@ -1,0 +1,34 @@
+body {
+    text-align: center;
+}
+
+#nav-bar {
+    font-size: x-large;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+#nav-bar a {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#video-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 40px;
+    column-gap: 20px;
+    margin-bottom: 50px;
+}
+
+video {
+    width: 600px;
+    height: 350px;
+}
+
+.btn {
+    display: block;
+    margin: auto;
+}

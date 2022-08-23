@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Test</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/viewer_all.css">
+</head>
+<body>
+    <!-- <div id="nav-bar">
+        <a href="/">Home</a>
+        <a href="/viewer/all">All</a>
+        <a href="/viewer/stream1">Stream1</a>
+        <a href="/viewer/stream2">Stream2</a>
+        <a href="/viewer/stream3">Stream3</a>
+        <a href="/viewer/stream4">Stream4</a>
+    </div> -->
+    <div id="video-container">
+        <div class="viewer">
+            <h3>Stream1</h3>
+            <video id="player1" autoplay controls muted></video>
+            <!-- <button id="1" class="btn btn-primary" type="button" onclick="onClickChangeQuality(this)">원본 화질</button> -->
+        </div>
+        
+        <div class="viewer">
+            <h3>Stream2</h3>
+            <video id="player2" autoplay controls muted></video>
+            <!-- <button id="2" class="btn btn-primary" type="button" onclick="onClickChangeQuality(this)">원본 화질</button> -->
+        </div>
+
+        <div class="viewer">
+            <h3>Stream3</h3>
+            <video id="player3" autoplay controls muted></video>
+            <!-- <button id="3" class="btn btn-primary" type="button" onclick="onClickChangeQuality(this)">원본 화질</button> -->
+        </div>
+
+        <div class="viewer">
+            <h3>Stream4</h3>
+            <video id="player4" autoplay controls muted></video>
+            <!-- <button id="4" class="btn btn-primary" type="button" onclick="onClickChangeQuality(this)">원본 화질</button> -->
+        </div>
+    </div>
+</body>
+<script src="/viewer_all_bundle.js"></script>
+</html>

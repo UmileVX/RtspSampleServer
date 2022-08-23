@@ -1,0 +1,24 @@
+#nav-bar {
+    font-size: x-large;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+#nav-bar a {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#video-area {
+    text-align: center;
+}
+
+video {
+    width: 854px;
+    height: 480px;
+}
+
+.download-form-group {
+    margin-top: 40px;
+}
