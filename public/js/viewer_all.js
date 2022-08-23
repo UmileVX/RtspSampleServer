@@ -46,14 +46,14 @@ window.onClickChangeQuality = async function(btn) {
 
 async function startStreaming() {
     KOGAS_STREAM = await api.getAwsHlsSrc();
-    DOWNSCALE_STREAM = await api.getDownscaleSrc();
+    // DOWNSCALE_STREAM = await api.getDownscaleSrc();
 
-    var dataLength = Object.keys(DOWNSCALE_STREAM).length;
+    var dataLength = Object.keys(KOGAS_STREAM).length;
     var src;
 
     for(var i=0; i<dataLength; i++) {
-        src = DOWNSCALE_STREAM[streams[i]];
-        makeVideo(streams[i], src, playerIds[i], hlsMap, 1);
+        src = KOGAS_STREAM[streams[i]];
+        makeVideo(streams[i], src, playerIds[i], hlsMap, 0);
     }
 }
 
