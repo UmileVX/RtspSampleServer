@@ -26,8 +26,8 @@ function transcodeStream(streamName, url) {
         '-strict -2',
         '-crf 18',
         '-profile:v baseline',
-        '-maxrate 400k',
-        '-bufsize 1835k',
+        '-maxrate 600k', //2000k
+        '-bufsize 1835k', //2000k
         '-pix_fmt yuv420p',
         '-hls_time 10',
         '-hls_list_size 6',
