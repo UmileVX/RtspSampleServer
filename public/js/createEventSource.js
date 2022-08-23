@@ -1,7 +1,7 @@
 var eventSource;
 
-function createEventSource() {
-    eventSource = new EventSource(`/subscribe`);
+function createEventSource(onCrash_cb, onRecover_cb) {
+    eventSource = new EventSource(`/sse`);
 
     eventSource.onmessage = function(e) {
         var data = e.data;
@@ -13,8 +13,11 @@ function createEventSource() {
             window.location.reload();
         } else if (data.includes('crash=')) {
             var crashed_stream_name = data.split('=')[1];
-            //TODO
+            onCrash_cb(crashed_stream_name);
         } else if (data.includes('recover=')) {
+            var recovered_stream_name = data.split('=')[1];
+            onRecover_cb(recovered_stream_name);
+        } else {
             //TODO
         }
     }
@@ -28,3 +31,5 @@ function createEventSource() {
         console.log('createEventSource -> eventSource.onerror :', e);
     }
 }
+
+module.exports = createEventSource;
