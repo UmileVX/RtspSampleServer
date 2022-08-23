@@ -8,7 +8,7 @@ const {KOGAS_STREAM} = require('./streamSrc');
 
 async function initializeIndividualStream(streamName) {
     var rtsp_url = getRtspUrl(streamName);
-    var playlist_file_path = path.join(__dirname, `..${KOGAS_STREAM[streamName]}`);
+    var playlist_file_path = path.join(__dirname, `../public${KOGAS_STREAM[streamName]}`);
     var segment_file_path = playlist_file_path.replace('stream.m3u8', '%d.ts');
     // transcodeStream(streamName, rtsp_url);
 
