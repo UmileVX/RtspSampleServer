@@ -25,7 +25,7 @@ function initializeLiveStream() {
     let streamNames = ['kogas_stream1', 'kogas_stream2', 'kogas_stream3', 'kogas_stream4'];
     for (var i = 0; i < streamNames.length; i++) {
         var streamName = streamNames[i];
-        // initializeIndividualStream(streamName);
+        initializeIndividualStream(streamName);
     }
 }
 
