@@ -2,7 +2,7 @@ const axios = require('axios');
 
 axios.default.baseURL = 'http://localhost:3000';
 
-export async function getAwsHlsSrc() {
+export async function getKogasHlsSrc() {
     try {
         const res = await axios.get('/stream/hls-url');
         return res.data;

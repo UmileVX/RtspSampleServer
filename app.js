@@ -40,6 +40,7 @@ app.get('/recover', (req, res) => {
         var msg = `recover=${streamName}`;
         send_msg_to_all(msg);
         res.status(200).send('sse sent successfully');
+        return;
     }
     res.status(404).send('Invalid stream name!');
 });
@@ -49,6 +50,7 @@ app.get('/crash', (req, res) => {
         var msg = `crash=${streamName}`;
         send_msg_to_all(msg);
         res.status(200).send('sse sent successfully');
+        return;
     }
     res.status(404).send('Invalid stream name!');
 });

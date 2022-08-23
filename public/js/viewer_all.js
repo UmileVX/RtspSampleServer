@@ -1,5 +1,7 @@
-const makeVideo = require('./makeVideo');
 const api = require('./api');
+const makeVideo = require('./makeVideo');
+const createEventSource = require('./createEventSource');
+
 
 
 var hlsMap = new Map();
@@ -21,6 +23,16 @@ function destroyHls(idx) {
     });
 }
 
+async function destroyHlsByStreamName(streamName) {
+    var idx = streams.indexOf(streamName);
+    await destroyHls(idx);
+}
+
+async function recoverHlsByStreamName(streamName) {
+    var idx = streams.indexOf(streamName);
+    var flag = flags[idx];
+    makeVideo(streams[idx], KOGAS_STREAM[streams[idx]], playerIds[idx], hlsMap, flag);
+}
 
 // flag == 1 일때 저화질, flag == 0 일때 원본
 window.onClickChangeQuality = async function(btn) {
@@ -45,7 +57,7 @@ window.onClickChangeQuality = async function(btn) {
 }
 
 async function startStreaming() {
-    KOGAS_STREAM = await api.getAwsHlsSrc();
+    KOGAS_STREAM = await api.getKogasHlsSrc();
     // DOWNSCALE_STREAM = await api.getDownscaleSrc();
 
     var dataLength = Object.keys(KOGAS_STREAM).length;
@@ -55,6 +67,9 @@ async function startStreaming() {
         src = KOGAS_STREAM[streams[i]];
         makeVideo(streams[i], src, playerIds[i], hlsMap, 0);
     }
+
+    console.log('Build server-sent event listener');
+    createEventSource(destroyHlsByStreamName, recoverHlsByStreamName);
 }
 
 startStreaming();
