@@ -14,11 +14,13 @@ const exitEvent = ['SIGINT', 'uncaughtException', 'SIGUSR1', 'SIGUSR2'];
 
 const {initializeLiveStream} = require('./src/initializeLiveStream');
 const {KOGAS_STREAM} = require('./src/streamSrc');
+const {sse_router, send_msg_to_all} = require('./src/sse');
 
 
 app.use(logger('dev'));
 app.use(express.static(path.join(__dirname, 'dist')));
 app.use(express.static(path.join(__dirname, 'public')));
+
 
 // Show pages
 app.get('/', (req,res) => {
@@ -30,6 +32,28 @@ app.get('/', (req,res) => {
 app.get('/stream/hls-url', (req,res) => {
     res.status(200).json(KOGAS_STREAM);
 });
+
+
+app.get('/recover', (req, res) => {
+    var {streamName} = req.query;
+    if (streamName in KOGAS_STREAM) {
+        var msg = `recover=${streamName}`;
+        send_msg_to_all(msg);
+        res.status(200).send('sse sent successfully');
+    }
+    res.status(404).send('Invalid stream name!');
+});
+app.get('/crash', (req, res) => {
+    var {streamName} = req.query;
+    if (streamName in KOGAS_STREAM) {
+        var msg = `crash=${streamName}`;
+        send_msg_to_all(msg);
+        res.status(200).send('sse sent successfully');
+    }
+    res.status(404).send('Invalid stream name!');
+});
+app.use('/sse', sse_router);
+
 
 //--------------------------------------------------------------------------------
 // Endpoints for viewers

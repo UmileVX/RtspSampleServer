@@ -11,10 +11,10 @@ function createEventSource() {
         if (data.includes('REFRESH')) {
             // refresh web
             window.location.reload();
-        } else if (data.includes('crash')) {
+        } else if (data.includes('crash=')) {
             var crashed_stream_name = data.split('=')[1];
             //TODO
-        } else {
+        } else if (data.includes('recover=')) {
             //TODO
         }
     }
