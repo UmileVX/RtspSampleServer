@@ -2,15 +2,18 @@
 const path = require('path');
 
 const getRtspUrl = require('./model/getRtspUrl');
-//const transcodeStream = require('./transcodeStream');
 const {KOGAS_STREAM} = require('./model/streamSrc');
 
 
 async function initializeIndividualStream(streamName) {
     var rtsp_url = getRtspUrl(streamName);
+    var pth = path.join(__dirname, `../public${streamName}`);
+    if (!fs.existsSync(pth)) {
+        fs.mkdirSync(pth, {recursive:true});
+    }
+
     var playlist_file_path = path.join(__dirname, `../public${KOGAS_STREAM[streamName]}`);
     var segment_file_path = playlist_file_path.replace('stream.m3u8', '%d.ts');
-    // transcodeStream(streamName, rtsp_url);
 
     console.log('playlist_file_path: ', playlist_file_path);
     console.log('segment_file_path: ', segment_file_path);

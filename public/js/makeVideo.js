@@ -9,7 +9,8 @@ function makeVideo(streamName, src, playerId, hlsMap, flag) {
     var config = {
         "initialLiveManifestSize": 3,
         "liveSyncDurationCount": 3,
-        "liveMaxLatencyDurationCount": 5
+        "liveMaxLatencyDurationCount": 5,
+        "manifestLoadingMaxRetry": 5,
     }
 
     const playerElement = document.getElementById(playerId);
@@ -28,7 +29,6 @@ function makeVideo(streamName, src, playerId, hlsMap, flag) {
 
     hls.on(Hls.Events.ERROR, (event,data) => {
         console.log(streamName);
-        console.log(data);
 
         if(data.fatal) {
             switch(data.type) {
@@ -40,6 +40,8 @@ function makeVideo(streamName, src, playerId, hlsMap, flag) {
                     console.log('fatal media error encountered, try to recover');
                     hls.recoverMediaError();
                     break;
+                default:
+                    console.log(data);
             }
         }
     });
