@@ -28,7 +28,7 @@ do
     # execute ffmpeg
     ffmpeg -fflags nobuffer -rtsp_transport tcp -i $rtsp_url -vsync 0 \
     -copyts -vcodec copy -movflags frag_keyframe+empty_moov -an -hls_flags delete_segments \
-    -f hls -hls_delete_threshold 3 -hls_list_size 3 -hls_time 5 $playlist_file_path
+    -f hls -hls_delete_threshold 3 -hls_list_size 5 -hls_time 10 $playlist_file_path
     # ffmpeg -fflags nobuffer -rtsp_transport tcp -i $rtsp_url -vsync 0 \
     # -copyts -vcodec copy -movflags frag_keyframe+empty_moov -an -hls_flags delete_segments+append_list \
     # -f segment -segment_list_flags live -segment_time 10 -segment_list_size 3 -segment_format mpegts \
@@ -39,6 +39,9 @@ do
     echo "Let the server know that the ffmpeg has been terminated!"
     curl http://localhost:3000/crash?streamName=$streamName
     echo ""
+
+    # remove all hls related files for safety
+    rm -rf ./public/playlist/$streamName/*
 
     echo "Sleep for 5 seconds"
     sleep 5
