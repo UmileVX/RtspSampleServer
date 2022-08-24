@@ -1,5 +1,6 @@
 // const {exec} = require('child_process');
 const path = require('path');
+const fs = require('fs');
 
 const getRtspUrl = require('./model/getRtspUrl');
 const {KOGAS_STREAM} = require('./model/streamSrc');
@@ -7,7 +8,7 @@ const {KOGAS_STREAM} = require('./model/streamSrc');
 
 async function initializeIndividualStream(streamName) {
     var rtsp_url = getRtspUrl(streamName);
-    var pth = path.join(__dirname, `../public${streamName}`);
+    var pth = path.join(__dirname, `../public/playlist/${streamName}`);
     if (!fs.existsSync(pth)) {
         fs.mkdirSync(pth, {recursive:true});
     }

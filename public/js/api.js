@@ -19,3 +19,30 @@ export async function getDownscaleSrc() {
         console.log(err);
     }
 }
+
+export async function checkIfStreamIsPlayable(stream) {
+    try {
+        const res = await axios.get(stream);
+        console.log(`${stream}`, res);
+        return true;
+    } catch (err) {
+        console.log(err);
+    }
+    return false;
+}
+
+export async function getPlayableStreamList(streams) {
+    try {
+        var keys = Object.keys(streams);
+        let playable = [];
+        for (var i = 0; i < keys.length; i += 1) {
+            const key = keys[i];
+            const stream_path = streams[key];
+            let isPlayable = await checkIfStreamIsPlayable(stream_path);
+            playable.push(isPlayable);
+        }
+        return playable;
+    } catch (err) {
+        console.log(err);
+    }
+}
