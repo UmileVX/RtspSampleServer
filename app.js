@@ -13,7 +13,7 @@ const PLAYLIST_DIR = __dirname + '/public/playlist';
 const exitEvent = ['SIGINT', 'uncaughtException', 'SIGUSR1', 'SIGUSR2'];
 
 const {initializeLiveStream} = require('./src/initializeLiveStream');
-const {KOGAS_STREAM} = require('./src/streamSrc');
+const {KOGAS_STREAM} = require('./src/model/streamSrc');
 const {sse_router, send_msg_to_all} = require('./src/sse');
 
 

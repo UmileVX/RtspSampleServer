@@ -1,9 +1,9 @@
-const {exec} = require('child_process');
+// const {exec} = require('child_process');
 const path = require('path');
 
-const getRtspUrl = require('./getRtspUrl');
+const getRtspUrl = require('./model/getRtspUrl');
 //const transcodeStream = require('./transcodeStream');
-const {KOGAS_STREAM} = require('./streamSrc');
+const {KOGAS_STREAM} = require('./model/streamSrc');
 
 
 async function initializeIndividualStream(streamName) {
@@ -16,12 +16,12 @@ async function initializeIndividualStream(streamName) {
     console.log('segment_file_path: ', segment_file_path);
 
     // generate child process for ffmpeg execution
-    exec(`./run_ffmpeg.sh ${streamName} ${rtsp_url} ${playlist_file_path} ${segment_file_path}`, (err, stdout, stderr) => {
-        if (err) {
-            console.error(`exec error: ${err}`);
-            return;
-        }
-    });
+    // exec(`./run_ffmpeg.sh ${streamName} ${rtsp_url} ${playlist_file_path} ${segment_file_path}`, (err, stdout, stderr) => {
+    //     if (err) {
+    //         console.error(`exec error: ${err}`);
+    //         return;
+    //     }
+    // });
 }
 
 function initializeLiveStream() {
