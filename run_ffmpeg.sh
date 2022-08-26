@@ -28,17 +28,17 @@ do
     # execute ffmpeg
     ffmpeg -fflags nobuffer -rtsp_transport tcp -i $rtsp_url \
     -vsync 0 -copyts -vcodec copy -movflags frag_keyframe+empty_moov -an -hls_flags delete_segments \
-    -f hls -hls_delete_threshold 3 -hls_list_size 5 -hls_time 10 ./public/playlist/kogas_stream1 \
+    -f hls -hls_delete_threshold 3 -hls_list_size 5 -hls_time 10 ./public/playlist/kogas_stream1/stream.m3u8 \
     -vsync 0 -copyts -vcodec copy -movflags frag_keyframe+empty_moov -an -hls_flags delete_segments \
-    -f hls -hls_delete_threshold 3 -hls_list_size 5 -hls_time 10 ./public/playlist/kogas_stream2 \
+    -f hls -hls_delete_threshold 3 -hls_list_size 5 -hls_time 10 ./public/playlist/kogas_stream2/stream.m3u8 \
     -vsync 0 -copyts -vcodec copy -movflags frag_keyframe+empty_moov -an -hls_flags delete_segments \
-    -f hls -hls_delete_threshold 3 -hls_list_size 5 -hls_time 10 ./public/playlist/kogas_stream3 \
+    -f hls -hls_delete_threshold 3 -hls_list_size 5 -hls_time 10 ./public/playlist/kogas_stream3/stream.m3u8 \
     -vsync 0 -copyts -vcodec copy -movflags frag_keyframe+empty_moov -an -hls_flags delete_segments \
-    -f hls -hls_delete_threshold 3 -hls_list_size 5 -hls_time 10 ./public/playlist/kogas_stream4 \
+    -f hls -hls_delete_threshold 3 -hls_list_size 5 -hls_time 10 ./public/playlist/kogas_stream4/stream.m3u8 \
     -vsync 0 -copyts -vcodec copy -movflags frag_keyframe+empty_moov -an -hls_flags delete_segments \
-    -f hls -hls_delete_threshold 3 -hls_list_size 5 -hls_time 10 ./public/playlist/kogas_stream5 \
+    -f hls -hls_delete_threshold 3 -hls_list_size 5 -hls_time 10 ./public/playlist/kogas_stream5/stream.m3u8 \
     -vsync 0 -copyts -vcodec copy -movflags frag_keyframe+empty_moov -an -hls_flags delete_segments \
-    -f hls -hls_delete_threshold 3 -hls_list_size 5 -hls_time 10 ./public/playlist/kogas_stream6
+    -f hls -hls_delete_threshold 3 -hls_list_size 5 -hls_time 10 ./public/playlist/kogas_stream6/stream.m3u8
 
     # ffmpeg -fflags nobuffer -rtsp_transport tcp -i $rtsp_url -vsync 0 \
     # -copyts -vcodec copy -movflags frag_keyframe+empty_moov -an -hls_flags delete_segments \
