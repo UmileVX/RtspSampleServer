@@ -11,9 +11,9 @@ var DOWNSCALE_STREAM = {};
 
 const refresh_interval = 30000;
 const reload_interval = 40000;
-const streams = ['kogas_stream1', 'kogas_stream2', 'kogas_stream3', 'kogas_stream4', 'kogas_stream5', 'kogas_stream6'];
-const playerIds = ['player1', 'player2', 'player3', 'player4', 'player5', 'player6'];
-var flags = [0,0,0,0,0,0];
+const streams = ['kogas_stream1', 'kogas_stream2', 'kogas_stream3', 'kogas_stream4', 'kogas_stream5', 'kogas_stream6', 'kogas_stream7', 'kogas_stream8'];
+const playerIds = ['player1', 'player2', 'player3', 'player4', 'player5', 'player6', 'player7', 'player8'];
+var flags = [0,0,0,0,0,0,0,0];
 
 //---------------------------------------------------------------------------
 // Video
