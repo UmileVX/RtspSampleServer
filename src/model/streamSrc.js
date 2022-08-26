@@ -4,6 +4,8 @@ const KOGAS_STREAM = {
     kogas_stream2: "/playlist/kogas_stream2/stream.m3u8",
     kogas_stream3: "/playlist/kogas_stream3/stream.m3u8",
     kogas_stream4: "/playlist/kogas_stream4/stream.m3u8",
+    kogas_stream5: "/playlist/kogas_stream5/stream.m3u8",
+    kogas_stream6: "/playlist/kogas_stream6/stream.m3u8",
 }
 
 module.exports = {KOGAS_STREAM};

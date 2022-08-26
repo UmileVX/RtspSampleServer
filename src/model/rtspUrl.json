@@ -1,6 +1,8 @@
 {
-    "kogas_stream1": "rtsp://192.168.11.102:8123/ds-test",
-    "kogas_stream2": "rtsp://192.168.11.102:8123/ds-test",
-    "kogas_stream3": "rtsp://192.168.11.102:8123/ds-test",
-    "kogas_stream4": "rtsp://192.168.11.102:8123/ds-test"
+    "kogas_stream1": "rtsp://admin:Inoon0312@14.39.220.140:5540/profile2/media.smp",
+    "kogas_stream2": "rtsp://admin:Inoon0312@14.39.220.140:5540/profile2/media.smp",
+    "kogas_stream3": "rtsp://admin:Inoon0312@14.39.220.140:5540/profile2/media.smp",
+    "kogas_stream4": "rtsp://admin:Inoon0312@14.39.220.140:5540/profile2/media.smp",
+    "kogas_stream5": "rtsp://admin:Inoon0312@14.39.220.140:5540/profile2/media.smp",
+    "kogas_stream6": "rtsp://admin:Inoon0312@14.39.220.140:5540/profile2/media.smp"
 }
