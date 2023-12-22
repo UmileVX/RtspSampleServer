@@ -1,7 +1,7 @@
 {
-  "name": "kogas-backend",
+  "name": "rtsp-backend",
   "version": "1.0.0",
-  "description": "Sample backend server for Kogas project",
+  "description": "Sample backend server for RTSP streaming project",
   "main": "index.js",
   "scripts": {
     "build": "webpack",
